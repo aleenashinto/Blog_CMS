@@ -1,0 +1,141 @@
+/* frontend/src/index.css */
+
+:root {
+  --ink: #0a0a0f;
+  --ink-soft: #12121a;
+  --surface: #16161e;
+  --surface-2: #1e1e28;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.15);
+  --text-primary: #f0eff8;
+  --text-secondary: #8a8aa0;
+  --text-muted: #4a4a60;
+  --cyan: #00e5c8;
+  --cyan-dim: rgba(0,229,200,0.12);
+  --cyan-glow: rgba(0,229,200,0.3);
+  --violet: #8b5cf6;
+  --violet-dim: rgba(139,92,246,0.12);
+  --coral: #ff6b6b;
+  --amber: #f59e0b;
+  --white: #ffffff;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --nav-h: 72px;
+}
+
+body {
+  background: var(--ink);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* ───── GLOBAL NAVBAR STYLES ───── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  background: rgba(10, 10, 15, 0.65);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.02em;
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: black;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--white);
+  padding: 9px 24px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--cyan-dim);
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px var(--cyan-glow);
+}
+
+/* ───── RESPONSIVE (optional) ───── */
+@media (max-width: 900px) {
+  nav {
+    padding: 0 24px;
+  }
+  .nav-links {
+    display: none;
+  }
+}
